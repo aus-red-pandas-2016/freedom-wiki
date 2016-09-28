@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :require_admin
+  #before_action :require_admin
 
   def index
     @categories = Category.all
@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @group = Group.find(params[:group_id])
-    @category_articles = @category.articles.where(group_id: @group)
+    @category_articles = @category.articles.where(group: @group)
   end
 
   def new
